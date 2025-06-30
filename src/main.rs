@@ -19,11 +19,9 @@ async fn main() {
         .route("/message/verify", post(handlers::verify_message))
         .route("/send/sol", post(handlers::send_sol))
         .route("/send/token", post(handlers::send_token))
-        // Add the health check endpoint if you want it
         .route("/health", axum::routing::get(|| async { "OK" }))
         .layer(cors);
 
-    // Get port from environment or use 3000 as default
     let port = env::var("PORT").unwrap_or("3000".to_string());
     let addr = format!("0.0.0.0:{}", port);
 
