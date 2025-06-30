@@ -21,7 +21,7 @@ async fn main() {
             .layer(cors);
 
     // Run it
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000").await.unwrap();
+    let listener = tokio::net::TcpListener::bind("0.0.0.0").await.unwrap();
     println!("🚀 Solana HTTP Server running on http://127.0.0.1:3000");
     println!("📋 Available endpoints:");
     println!("   POST /keypair - Generate a new Solana keypair");
